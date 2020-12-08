@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { mount } from "marketing/MarketingApp";
 
-const MarketingApp = () => {
+const MarketingApp = ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory();
 
@@ -15,6 +15,7 @@ const MarketingApp = () => {
 
         nextPathname !== pathname && history.push(nextPathname);
       },
+      onSignIn,
     });
 
     history.listen(onParentNavigate);
